@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zeinab Sleiman | Translation & Travel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-blue: #0077b6;
@@ -24,19 +24,12 @@
             overflow-x: hidden;
         }
 
-        /* --- Header & Nav --- */
         header {
             background-color: var(--primary-blue);
             color: white;
             padding: 40px 20px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
         }
 
         nav {
@@ -60,16 +53,11 @@
             text-transform: uppercase;
         }
 
-        .tab-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
         .tab-btn.active {
             background: var(--primary-blue);
             border-bottom: 4px solid var(--accent-gold);
         }
 
-        /* --- Tab Content Styling --- */
         .content-wrapper {
             position: relative;
             max-width: 1000px;
@@ -90,26 +78,43 @@
             display: block;
         }
 
-        /* --- Door Animation --- */
         @keyframes doorOpen {
-            0% {
-                opacity: 0;
-                transform: scaleX(0);
-                filter: blur(10px);
-            }
-            100% {
-                opacity: 1;
-                transform: scaleX(1);
-                filter: blur(0);
-            }
+            0% { opacity: 0; transform: scaleX(0); filter: blur(10px); }
+            100% { opacity: 1; transform: scaleX(1); filter: blur(0); }
         }
 
-        /* --- Grid & Cards --- */
+        /* --- Owner Profile Styles --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .profile-image-container {
+            position: relative;
+        }
+
+        .profile-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 20px 20px 0px var(--accent-gold);
+            object-fit: cover;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin-top: 20px;
+        }
+
+        /* --- Services & Contact --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            margin-top: 30px;
         }
 
         .card {
@@ -117,26 +122,9 @@
             border: 1px solid #eee;
             border-radius: 10px;
             padding: 25px;
-            transition: transform 0.3s ease;
             border-left: 5px solid var(--primary-blue);
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .card h3 {
-            color: var(--dark-blue);
-            margin-top: 0;
-        }
-
-        ul {
-            padding-left: 20px;
-            line-height: 1.8;
-        }
-
-        /* --- Contact Section --- */
         .contact-card {
             background: var(--dark-blue);
             color: white;
@@ -145,22 +133,11 @@
             text-align: center;
         }
 
-        .contact-card p {
-            font-size: 1.1rem;
-            margin: 15px 0;
-        }
+        footer { text-align: center; padding: 30px; color: #777; }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.9rem;
-            color: #777;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .tab-btn { padding: 15px 15px; font-size: 0.8rem; }
-            header h1 { font-size: 1.8rem; }
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .profile-image { width: 80%; margin-bottom: 30px; }
         }
     </style>
 </head>
@@ -179,36 +156,38 @@
 
 <div class="content-wrapper">
     <section id="about" class="tab-content active">
-        <h2>About the Agency</h2>
-        <p style="font-size: 1.2rem; line-height: 1.6;">
-            Welcome to <strong>Zeinab Sleiman Translation & Travel Services</strong>. We are a premier Lebanese agency dedicated to bridging languages and boundaries. 
-        </p>
-        <p>
-            With deep expertise in legal linguistics and international travel logistics, we provide our clients with the precision of a certified translator and the care of a personal travel concierge. Whether you are moving documents across borders or planning your next global adventure, we ensure a seamless experience.
-        </p>
+        <div class="about-grid">
+            <div class="profile-image-container">
+                <img src="YOUR_IMAGE_URL_HERE" alt="Zeinab Sleiman" class="profile-image">
+            </div>
+            <div>
+                <h2>Meet the Director</h2>
+                <p>Welcome to <strong>Zeinab Sleiman Translation & Travel Services</strong>. My mission is to provide Lebanon and the global community with linguistic precision and seamless travel experiences.</p>
+                <p>As a certified professional, I understand that translation is not just about words—it's about legal accuracy and cultural nuance. Similarly, our travel division is built on the belief that every journey should be stress-free and perfectly organized.</p>
+                <div class="signature">Zeinab Sleiman</div>
+            </div>
+        </div>
     </section>
 
     <section id="services" class="tab-content">
-        <h2>Our Professional Services</h2>
+        <h2>Professional Expertise</h2>
         <div class="services-grid">
             <div class="card">
-                <h3>Translation Services</h3>
-                <p>Certified Arabic & English translations for official use.</p>
+                <h3>Translation</h3>
+                <p>Certified Arabic & English translations.</p>
                 <ul>
-                    <li>Birth & Marriage Certificates</li>
-                    <li>Academic Transcripts & Diplomas</li>
-                    <li>Legal Contracts & Court Papers</li>
-                    <li>Official Government Letters</li>
+                    <li>Legal & Official Documents</li>
+                    <li>Academic Transcripts</li>
+                    <li>Marriage & Birth Certificates</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Travel & Visas</h3>
-                <p>Complete solutions for your international journeys.</p>
+                <p>Bespoke travel solutions.</p>
                 <ul>
-                    <li>Flight & Hotel Reservations</li>
-                    <li>Visa Consulting & Processing</li>
-                    <li>Custom Tour Packages</li>
-                    <li>Corporate Travel Planning</li>
+                    <li>Global Visa Consulting</li>
+                    <li>Flight & Hotel Bookings</li>
+                    <li>Personalized Tour Packages</li>
                 </ul>
             </div>
         </div>
@@ -216,12 +195,12 @@
 
     <section id="contact" class="tab-content">
         <div class="contact-card">
-            <h2>Get In Touch</h2>
+            <h2>Connect With Us</h2>
             <p><strong>Email:</strong> sleiman.translation@gmail.com</p>
             <p><strong>Phone:</strong> +961 3 656 722</p>
             <p><strong>Instagram:</strong> @visavoyage.lb</p>
             <hr style="border: 0.5px solid rgba(255,255,255,0.2); margin: 20px 0;">
-            <p><strong>Lebanon Offices:</strong> Bednayel | Ablah | Hazmieh | Choueifat</p>
+            <p>Bednayel | Ablah | Hazmieh | Choueifat</p>
         </div>
     </section>
 </div>
@@ -232,24 +211,12 @@
 
 <script>
     function openTab(evt, tabId) {
-        // Hide all tab content
         const contents = document.getElementsByClassName("tab-content");
-        for (let i = 0; i < contents.length; i++) {
-            contents[i].classList.remove("active");
-        }
-
-        // Remove "active" class from all buttons
+        for (let i = 0; i < contents.length; i++) contents[i].classList.remove("active");
         const buttons = document.getElementsByClassName("tab-btn");
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove("active");
-        }
-
-        // Show current tab and add active class to button
+        for (let i = 0; i < buttons.length; i++) buttons[i].classList.remove("active");
         document.getElementById(tabId).classList.add("active");
         evt.currentTarget.classList.add("active");
-        
-        // Scroll to top of content area
-        window.scrollTo({top: 150, behavior: 'smooth'});
     }
 </script>
 
