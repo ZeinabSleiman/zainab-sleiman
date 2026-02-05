@@ -1,68 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Zeinab Sleiman � Translation & Travel Services</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0; padding: 0;
-        color: #333;
-    }
-    header {
-        background-color: #0077b6;
-        color: white;
-        padding: 25px 0;
-        text-align: center;
-    }
-    header h1 {
-        margin: 0;
-        font-size: 2.5em;
-    }
-    nav {
-        background: #023e8a;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        padding: 10px 0;
-    }
-    nav a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    section {
-        padding: 50px 20px;
-        max-width: 1100px;
-        margin: auto;
-    }
-    .services-container {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .service-box {
-        flex: 1 1 300px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 0 8px rgba(0,0,0,0.05);
-    }
-    .service-box h3 { color: #0077b6; }
-    footer {
-        background: #023e8a;
-        color: white;
-        text-align: center;
-        padding: 15px 0;
-    }
-    .contact-info p {
-        margin: 8px 0;
-    }
-</style>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeinab Sleiman | Translation & Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0077b6;
+            --dark-blue: #023e8a;
+            --accent-gold: #caf0f8;
+            --text-color: #333;
+            --bg-light: #f8f9fa;
+            --transition-speed: 0.6s;
+        }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background: var(--dark-blue);
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-btn.active {
+            background: var(--primary-blue);
+            border-bottom: 4px solid var(--accent-gold);
+        }
+
+        /* --- Tab Content Styling --- */
+        .content-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            min-height: 500px;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            animation: doorOpen var(--transition-speed) ease-out forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* --- Door Animation --- */
+        @keyframes doorOpen {
+            0% {
+                opacity: 0;
+                transform: scaleX(0);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scaleX(1);
+                filter: blur(0);
+            }
+        }
+
+        /* --- Grid & Cards --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--dark-blue);
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        /* --- Contact Section --- */
+        .contact-card {
+            background: var(--dark-blue);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-card p {
+            font-size: 1.1rem;
+            margin: 15px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .tab-btn { padding: 15px 15px; font-size: 0.8rem; }
+            header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
 <body>
 
 <header>
@@ -71,61 +172,86 @@
 </header>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+    <button class="tab-btn active" onclick="openTab(event, 'about')">About</button>
+    <button class="tab-btn" onclick="openTab(event, 'services')">Services</button>
+    <button class="tab-btn" onclick="openTab(event, 'contact')">Contact</button>
 </nav>
 
-<section id="about">
-    <h2>About Us</h2>
-    <p>
-        Welcome to <strong>Zeinab Sleiman Translation & Travel Services </strong>.We are a trusted Lebanese agency offering professional translation services and personalized travel solutions. With years of experience and a focus on excellence, we help clients with accurate translations and seamless travel arrangements.
-    </p>
-</section>
+<div class="content-wrapper">
+    <section id="about" class="tab-content active">
+        <h2>About the Agency</h2>
+        <p style="font-size: 1.2rem; line-height: 1.6;">
+            Welcome to <strong>Zeinab Sleiman Translation & Travel Services</strong>. We are a premier Lebanese agency dedicated to bridging languages and boundaries. 
+        </p>
+        <p>
+            With deep expertise in legal linguistics and international travel logistics, we provide our clients with the precision of a certified translator and the care of a personal travel concierge. Whether you are moving documents across borders or planning your next global adventure, we ensure a seamless experience.
+        </p>
+    </section>
 
-<section id="services">
-    <h2>Our Services</h2>
-    <div class="services-container">
-
-        <div class="service-box">
-            <h3>Translation Services</h3>
-            <p>Certified Arabic ? English document translation (legal, personal, academic).</p>
-            <ul>
-                <li>Birth Certificates</li>
-                <li>Marriage Certificates</li>
-                <li>Academic Transcripts</li>
-                <li>Official Letters & Legal Papers</li>
-            </ul>
+    <section id="services" class="tab-content">
+        <h2>Our Professional Services</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Translation Services</h3>
+                <p>Certified Arabic & English translations for official use.</p>
+                <ul>
+                    <li>Birth & Marriage Certificates</li>
+                    <li>Academic Transcripts & Diplomas</li>
+                    <li>Legal Contracts & Court Papers</li>
+                    <li>Official Government Letters</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Travel & Visas</h3>
+                <p>Complete solutions for your international journeys.</p>
+                <ul>
+                    <li>Flight & Hotel Reservations</li>
+                    <li>Visa Consulting & Processing</li>
+                    <li>Custom Tour Packages</li>
+                    <li>Corporate Travel Planning</li>
+                </ul>
+            </div>
         </div>
+    </section>
 
-        <div class="service-box">
-            <h3>Travel Planning & Visas</h3>
-            <p>Custom travel planning with visa assistance and ticketing.</p>
-            <ul>
-                <li>Flight Booking & Reservations</li>
-                <li>Hotel Reservations</li>
-                <li>Visa Consulting & Processing</li>
-                <li>Tour Packages & Personalized Trips</li>
-            </ul>
+    <section id="contact" class="tab-content">
+        <div class="contact-card">
+            <h2>Get In Touch</h2>
+            <p><strong>Email:</strong> sleiman.translation@gmail.com</p>
+            <p><strong>Phone:</strong> +961 3 656 722</p>
+            <p><strong>Instagram:</strong> @visavoyage.lb</p>
+            <hr style="border: 0.5px solid rgba(255,255,255,0.2); margin: 20px 0;">
+            <p><strong>Lebanon Offices:</strong> Bednayel | Ablah | Hazmieh | Choueifat</p>
         </div>
-
-    </div>
-</section>
-
-<section id="contact">
-    <h2>Contact Us</h2>
-    <div class="contact-info">
-        <p><strong>Email:</strong> sleiman.translation@gmail.com</p>
-        <p><strong>Phone:</strong> +961 3 656 722</p>
-        <p><strong>Instagram:</strong> @visavoyage.lb</p>
-        <p><strong>Offices:</strong> Bednayel, Ablah, Hazmieh & Choueifat, Lebanon</p>
-    </div>
-    <p>We�re here to help � reach out for quotes, bookings & support!</p>
-</section>
+    </section>
+</div>
 
 <footer>
-    <p>� 2026 Zeinab Sleiman � All Rights Reserved</p>
+    <p>&copy; 2026 Zeinab Sleiman &bull; All Rights Reserved</p>
 </footer>
+
+<script>
+    function openTab(evt, tabId) {
+        // Hide all tab content
+        const contents = document.getElementsByClassName("tab-content");
+        for (let i = 0; i < contents.length; i++) {
+            contents[i].classList.remove("active");
+        }
+
+        // Remove "active" class from all buttons
+        const buttons = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+
+        // Show current tab and add active class to button
+        document.getElementById(tabId).classList.add("active");
+        evt.currentTarget.classList.add("active");
+        
+        // Scroll to top of content area
+        window.scrollTo({top: 150, behavior: 'smooth'});
+    }
+</script>
 
 </body>
 </html>
